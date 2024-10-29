@@ -6,6 +6,12 @@
 	<title></title>
 </head>
 <body>
+	<h1>All Corporations</h1>
+    <ul>
+        {% for corporation in corporations %}
+            <li>{{ corporation.name }}</li>
+        {% endfor %}
+    </ul>
 
 </body>
 </html>

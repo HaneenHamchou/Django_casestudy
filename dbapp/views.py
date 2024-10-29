@@ -38,5 +38,5 @@ def corporation_delete(request):
 
 #List view to display all corporations
 def corporation_list(request):
-    corporations = Corporation.objects.all()
+    corporations = Corporations.objects.all()
     return render(request, 'corp_views/list.html', {'corporations': corporations})

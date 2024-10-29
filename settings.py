@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from django_environ import Env
+
+env = Env()
+DEBUG = env.bool('DEBUG', default=False)
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dbapp',
+    'django-crispy-forms',
+    'rest_framework',
+    'corsheaders',
+    'drf_spectacular',
+    'debug_toolbar',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -76,12 +88,12 @@ WSGI_APPLICATION = 'casestudy.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dbapp',
-        'USER': 'postgres',
-        'PASSWORD': 'haneen',
-        'HOST': 'localhost',  # Or your database host
-        'PORT': '5432', 
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('DB_NAME', default='dbapp'),  
+        'USER': env('DB_USER', default='postgres'),  
+        'PASSWORD': env('DB_PASSWORD', default='haneen'), 
+        'HOST': env('DB_HOST', default='localhost'),  
+        'PORT': env('DB_PORT', default='5432'), 
     }
 }
 
