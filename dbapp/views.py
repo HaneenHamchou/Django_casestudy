@@ -35,3 +35,8 @@ def corporation_delete(request):
     else:
         form = CorporationForm()
     return render(request, 'corporations/delete.html', {'form': form})
+
+#List view to display all corporations
+def corporation_list(request):
+    corporations = Corporation.objects.all()
+    return render(request, 'corporations/list.html', {'corporations': corporations})
