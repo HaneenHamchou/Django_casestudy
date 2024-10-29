@@ -1,3 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import Corporation
+from .forms import CorporationForm
 
-# Create your views here.
+
+#Create Model
+def corporation_create(request):
+    if request.method == 'POST':
+        form = CorporationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('corporation_list')
+    else:
+        form = CorporationForm()
+    return render(request, 'corporations/create.html', {'form': form})
