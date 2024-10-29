@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=casestudy
+POSTGRES_USER=GPYguDnEwTkumjrrZPIuFZmjKWxlCAlo
+POSTGRES_PASSWORD=hgrNPld2lHygp3T9ZhmNcQegWhoWMbybdbm9eyCHgHa0lzP0ldAWwAYglPz1Vpll
