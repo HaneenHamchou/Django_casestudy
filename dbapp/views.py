@@ -24,3 +24,14 @@ def corporation_update(request):
     else:
         form = CorporationForm()
     return render(request, 'corporations/update.html', {'form': form})
+
+#Delete Model
+def corporation_delete(request):
+    if request.method == 'POST':
+        form = CorporationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('corporation_list')
+    else:
+        form = CorporationForm()
+    return render(request, 'corporations/delete.html', {'form': form})
