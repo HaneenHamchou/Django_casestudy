@@ -49,7 +49,7 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 DATABASES = {
     "default": env.db(
         "DATABASE_URL",
-        default="postgres://localhost/casestudy",
+        default="postgres://postgres:haneen@127.0.0.1:5432/dbapp",
     ),
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
